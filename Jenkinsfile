@@ -54,7 +54,6 @@ pipeline {
                         always {
                             echo "I am in PHPUnit Post section"
                              junit(
-                                skipPublishingChecks: true,
                                 allowEmptyResults: true,
                                 keepLongStdio: true,
                                 testResults: 'results/phpunit/phpunit.xml'
