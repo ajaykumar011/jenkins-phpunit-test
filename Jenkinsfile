@@ -46,7 +46,7 @@ pipeline {
                 stage('PHPUnit') {
                     agent any 
                     steps {
-                       sh 'wget -O tools/phive https://phar.io/releases/phive.phar && chmod +x phive'
+                       sh 'wget -O tools/phive https://phar.io/releases/phive.phar && chmod +x tools/phive'
                        sh 'php tools/phive install phpunit'
                        sh 'php tools/phpunit --log-junit results/phpunit/phpunit.xml -c tests/phpunit.xml'
                        sh "archive (includes: 'pkg/*.*')"
