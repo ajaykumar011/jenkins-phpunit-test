@@ -28,8 +28,8 @@ pipeline {
                         sh 'ls -l `which php`'
                         sh 'chmod +x test-app-requirements.sh'
                         sh 'sudo ./test-app-requirements.sh'
-                        sh 'chmod +x test-app-install.sh'
-                        sh './test-app-install.sh'
+                        //sh 'chmod +x test-app-install.sh'
+                        //sh './test-app-install.sh'
                     }
         }
         stage('Run Tests') {
