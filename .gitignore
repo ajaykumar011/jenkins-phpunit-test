@@ -1,0 +1,14 @@
+/nbproject/private/
+/vendor/
+cache.properties
+
+/build/api
+/build/coverage
+/build/logs
+/build/pdepend
+/build/phpdox
+
+# each dev can have it's own phpunit config here
+#phpunit.xml
+*.phar
+
