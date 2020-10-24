@@ -58,18 +58,7 @@ pipeline {
                         }
                     }
                 }
-                stage('Software Metrices Test') {
-                    agent any 
-                    steps {
-                        sh 'php vendor/bin/pdepend --jdepend-xml=logs/jdepend.xml --jdepend-chart=pdepend/dependencies.svg --overview-pyramid=pdepend/overview-pyramid.svg src/'
-                    }
-                    post {
-                        always {
-                           // junit "**/TEST-*.xml"
-                           echo "I am in always section"
-                            }
-                    }
-                }
+
             }
         }
     }
