@@ -46,6 +46,7 @@ pipeline {
                 stage('PHPUnit') {
                     agent any 
                     steps {
+                       sh 'wget -O tools/phive https://phar.io/releases/phive.phar && chmod +x phive'
                        sh 'php tools/phive install phpunit'
                        sh 'php tools/phpunit --log-junit results/phpunit/phpunit.xml -c tests/phpunit.xml'
                        sh "archive (includes: 'pkg/*.*')"
@@ -76,7 +77,27 @@ pipeline {
 
 
 
+//  stage('publish reports') {
+//         steps {
+//             unstash 'source'
 
+//             script {
+//                 sh 'ls target/jmeter/reports > listFiles.txt'
+//                 def files = readFile("listFiles.txt").split("\\r?\\n");
+//                 sh 'rm -f listFiles.txt'
+
+//                 for (i = 0; i < files.size(); i++) {
+//                     publishHTML target: [
+//                         allowMissing:false,
+//                         alwaysLinkToLastBuild: false,
+//                         keepAll:true,
+//                         reportDir: 'target/jmeter/reports/' + files[i],
+//                         reportFiles: 'index.html',
+//                         reportName: files[i]
+//                     ]
+//                 }                   
+//             }           
+      
 
 
 
