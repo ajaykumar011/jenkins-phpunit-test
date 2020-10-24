@@ -61,7 +61,7 @@ pipeline {
                                 testResults: 'results/phpunit/phpunit.xml'
                              ])
                            
-                            //publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'results/phpunit', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: ''])
+                            publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'results/phpunit', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: ''])
                         }
                     }
                 }
