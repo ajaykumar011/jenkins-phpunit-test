@@ -54,7 +54,7 @@ pipeline {
                         always {
                             echo "I am in PHPUnit Post section"
                             junit skipPublishingChecks: true, allowEmptyResults: true, keepLongStdio: true, testResults: 'results/phpunit/phpunit.xml'
-                            publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'results/phpunit', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: ''])
+                            //publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'results/phpunit', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: ''])
                         }
                     }
                 }
