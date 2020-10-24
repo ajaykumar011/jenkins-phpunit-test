@@ -46,7 +46,7 @@ pipeline {
                 stage('PHPUnit') {
                     agent any 
                     steps {
-                       sh 'phive install phpunit'
+                       sh 'php tools/phive install phpunit'
                        sh 'php tools/phpunit --log-junit results/phpunit/phpunit.xml -c tests/phpunit.xml'
                        sh "archive (includes: 'pkg/*.*')"
                     }
