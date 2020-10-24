@@ -49,17 +49,17 @@ pipeline {
                        sh 'wget -O tools/phive https://phar.io/releases/phive.phar && chmod +x tools/phive'
                        sh 'php tools/phive install phpunit'
                        sh 'php tools/phpunit --log-junit results/phpunit/phpunit.xml -c tests/phpunit.xml'
-                       sh "archive (includes: 'pkg/*.*')"
+                       //sh "archive (includes: 'pkg/*.*')"
                     }
                     post {
                         always {
                             echo "I am in PHPUnit Post section"
                           
-                             junit(
+                             junit([
                                 allowEmptyResults: true,
                                 keepLongStdio: true,
                                 testResults: 'results/phpunit/phpunit.xml'
-                                )
+                             ])
                            
                             //publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'results/phpunit', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: ''])
                         }
